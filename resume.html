@@ -1,102 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Resume/Experiences</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 35px 45px;
-      color: #222;
-      background-color: white;
-    }
-
-    h1 {
-      color: #236d91;
-      font-size: 84px;
-      font-weight: 300;
-      margin: 0 0 30px;
-    }
-
-    h2 {
-      font-size: 34px;
-      font-weight: 600;
-      margin-bottom: 80px;
-    }
-
-    ul {
-      list-style-type: square;
-      padding-left: 35px;
-      font-size: 26px;
-      line-height: 2;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
-      margin-top: 60px;
-      max-width: 1100px;
-    }
-
-    .gallery figure {
-      margin: 0;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .gallery figcaption {
-      font-size: 20px;
-      margin-top: 12px;
-      line-height: 1.4;
-    }
-
-    a {
-      display: inline-block;
-      margin-top: 30px;
-    }
-  </style>
+  <title>Qualifications and Experiences</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Qualifications and Experiences</h1>
+  <header>
+    <nav>
+      <div class="logo">Jeremy Millin</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="resume.html">Resume</a>
+        <a href="skills.html">Skills</a>
+      </div>
+    </nav>
 
-  <h2>This section will go over all of my qualifications and experiences</h2>
+    <div class="hero">
+      <h1>Qualifications and Experiences</h1>
+      <p>This section highlights my academic background, volunteer work, leadership, and personal experiences.</p>
+    </div>
+  </header>
 
-  <ul>
-    <li>I volunteer at Friendship Circle, a program where we help and connect with people with special needs</li>
-    <li>I volunteer regularly at my synagogue in the mornings to pack breakfast for people in need</li>
-    <li>I recently went on a Spanish Language Exchange program where I lived in Barcelona for 3 weeks</li>
-    <li>I have taken Civil Rights and Social Justice trips with my Synagogue</li>
-    <li>I am a key part of the Browning Riley's Way Chapter, and helped organize numorous clothing drives, computer drives, and sandwich making events</li>
-    <li>I am a strong student who gets good grades</li>
-  </ul>
+  <main>
+    <section class="card">
+      <h2>This section will go over all of my qualifications and experiences</h2>
 
-  <div class="gallery">
-    <figure>
-      <img src="exchange.png" alt="Exchange program certificate">
-      <figcaption>Me receiving my certificate of completion for my exchange program</figcaption>
-    </figure>
+      <ul class="resume-list">
+        <li>I volunteer at Friendship Circle, a program where we help and connect with people with special needs</li>
+        <li>I volunteer regularly at my synagogue in the mornings to pack breakfast for people in need</li>
+        <li>I recently went on a Spanish Language Exchange program where I lived in Barcelona for 3 weeks</li>
+        <li>I have taken Civil Rights and Social Justice trips with my Synagogue</li>
+        <li>I am a key part of the Browning Riley's Way Chapter, and helped organize numorous clothing drives, computer drives, and sandwich making events</li>
+        <li>I am a strong student who gets good grades</li>
+      </ul>
+    </section>
 
-    <figure>
-      <img src="civil.png" alt="Civil Rights Trip at the Edmund Pettus Bridge">
-      <figcaption>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</figcaption>
-    </figure>
+    <section class="card">
+      <h2>Experience Gallery</h2>
 
-    <figure>
-      <img src="friend.png" alt="Volunteering at Friendship Circle">
-      <figcaption>Me volunteering at Friendship Circle</figcaption>
-    </figure>
+      <div class="gallery">
+        <figure>
+          <img src="exchange.png" alt="Exchange program certificate">
+          <figcaption>Me receiving my certificate of completion for my exchange program</figcaption>
+        </figure>
 
-    <figure>
-      <img src="confirmation.png" alt="Confirmation service">
-      <figcaption>Photo of me at my confirmation service</figcaption>
-    </figure>
-  </div>
+        <figure>
+          <img src="civil.png" alt="Civil Rights Trip at the Edmund Pettus Bridge">
+          <figcaption>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</figcaption>
+        </figure>
 
-  <a href="index.html">Back to Home</a>
+        <figure>
+          <img src="friend.png" alt="Volunteering at Friendship Circle">
+          <figcaption>Me volunteering at Friendship Circle</figcaption>
+        </figure>
+
+        <figure>
+          <img src="confirmation.png" alt="Confirmation service">
+          <figcaption>Photo of me at my confirmation service</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
