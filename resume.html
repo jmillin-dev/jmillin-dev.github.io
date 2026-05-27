@@ -3,6 +3,11 @@
 <head>
   <title>Qualifications and Experiences</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .learn-more-button { margin-top: 16px; background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    .more-info { display: none; margin-top: 18px; padding: 18px; background: #eef6fa; border-left: 5px solid #236d91; border-radius: 12px; font-size: 18px; }
+    .more-info.open { display: block; }
+  </style>
 </head>
 
 <body>
@@ -26,7 +31,6 @@
   <main>
     <section class="card">
       <h2>This section will go over all of my qualifications and experiences</h2>
-
       <ul class="resume-list">
         <li>I volunteer at Friendship Circle, a program where we help and connect with people with special needs</li>
         <li>I volunteer regularly at my synagogue in the mornings to pack breakfast for people in need</li>
@@ -39,35 +43,29 @@
 
     <section class="feature-section">
       <img src="exchange.png" alt="Exchange program certificate">
-      <div>
-        <h2>Spanish Exchange Program</h2>
-        <p>Me receiving my certificate of completion for my exchange program</p>
-      </div>
+      <div><h2>Spanish Exchange Program</h2><p>Me receiving my certificate of completion for my exchange program</p><button class="learn-more-button" onclick="toggleMore('exchange-more')">Click to learn more</button><div id="exchange-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
     <section class="feature-section">
       <img src="civil.png" alt="Civil Rights Trip at the Edmund Pettus Bridge">
-      <div>
-        <h2>Civil Rights Trip</h2>
-        <p>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</p>
-      </div>
+      <div><h2>Civil Rights Trip</h2><p>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</p><button class="learn-more-button" onclick="toggleMore('civil-more')">Click to learn more</button><div id="civil-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
     <section class="feature-section">
       <img src="friend.png" alt="Volunteering at Friendship Circle">
-      <div>
-        <h2>Friendship Circle</h2>
-        <p>Me volunteering at Friendship Circle</p>
-      </div>
+      <div><h2>Friendship Circle</h2><p>Me volunteering at Friendship Circle</p><button class="learn-more-button" onclick="toggleMore('friend-more')">Click to learn more</button><div id="friend-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
     <section class="feature-section">
       <img src="confirmation.png" alt="Confirmation service">
-      <div>
-        <h2>Confirmation Service</h2>
-        <p>Photo of me at my confirmation service</p>
-      </div>
+      <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more')">Click to learn more</button><div id="confirmation-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
   </main>
+
+  <script>
+    function toggleMore(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
