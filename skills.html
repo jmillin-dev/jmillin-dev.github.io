@@ -3,6 +3,11 @@
 <head>
   <title>Skills and Passions</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .learn-more-button { margin-top: 16px; background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    .more-info { display: none; margin-top: 18px; padding: 18px; background: #eef6fa; border-left: 5px solid #236d91; border-radius: 12px; font-size: 18px; }
+    .more-info.open { display: block; }
+  </style>
 </head>
 
 <body>
@@ -32,6 +37,8 @@
       <div>
         <h2>Music Production</h2>
         <p>My recreation of the synth from Take on Me by Aha using Serum</p>
+        <button class="learn-more-button" onclick="toggleMore('music-more')">Click to learn more</button>
+        <div id="music-more" class="more-info"><p>More information will be added here later.</p></div>
       </div>
     </section>
 
@@ -43,6 +50,8 @@
       <div>
         <h2>Chemistry</h2>
         <p>I enjoy doing chemistry experiments, and have recently done a Copper (II) Sulfate and Sodium Hydroxide reaction with my friend Jeri</p>
+        <button class="learn-more-button" onclick="toggleMore('chem-more')">Click to learn more</button>
+        <div id="chem-more" class="more-info"><p>More information will be added here later.</p></div>
       </div>
     </section>
 
@@ -54,8 +63,16 @@
       <div>
         <h2>Basketball</h2>
         <p>I love watching basketball, and went to a Euroleague game on my exchange program</p>
+        <button class="learn-more-button" onclick="toggleMore('basketball-more')">Click to learn more</button>
+        <div id="basketball-more" class="more-info"><p>More information will be added here later.</p></div>
       </div>
     </section>
   </main>
+
+  <script>
+    function toggleMore(id) {
+      document.getElementById(id).classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
