@@ -30,6 +30,30 @@
       line-height: 2;
     }
 
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+      max-width: 1100px;
+    }
+
+    .gallery figure {
+      margin: 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery figcaption {
+      font-size: 20px;
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
     a {
       display: inline-block;
       margin-top: 30px;
@@ -50,6 +74,28 @@
     <li>I am a key part of the Browning Riley's Way Chapter, and helped organize numorous clothing drives, computer drives, and sandwich making events</li>
     <li>I am a strong student who gets good grades</li>
   </ul>
+
+  <div class="gallery">
+    <figure>
+      <img src="exchange.png" alt="Exchange program certificate">
+      <figcaption>Me receiving my certificate of completion for my exchange program</figcaption>
+    </figure>
+
+    <figure>
+      <img src="civil.png" alt="Civil Rights Trip at the Edmund Pettus Bridge">
+      <figcaption>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</figcaption>
+    </figure>
+
+    <figure>
+      <img src="friend.png" alt="Volunteering at Friendship Circle">
+      <figcaption>Me volunteering at Friendship Circle</figcaption>
+    </figure>
+
+    <figure>
+      <img src="confirmation.png" alt="Confirmation service">
+      <figcaption>Photo of me at my confirmation service</figcaption>
+    </figure>
+  </div>
 
   <a href="index.html">Back to Home</a>
 </body>
