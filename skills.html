@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Skills/Hobbies</title>
+  <title>Skills and Passions</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>An in-Depth analysis on my skills and passions</h1>
+  <header>
+    <nav>
+      <div class="logo">Jeremy Millin</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="resume.html">Resume</a>
+        <a class="active" href="skills.html">Skills</a>
+      </div>
+    </nav>
 
-  <p>This page includes my skills and hobbies.</p>
+    <div class="hero">
+      <h1>An in-Depth Analysis on My Skills and Passions</h1>
+      <p>Explore my interests in music production, chemistry, and basketball through videos and personal experiences.</p>
+    </div>
+  </header>
 
-  <h2>Music Production</h2>
-  <video controls width="600">
-    <source src="photos/videos/Serum.MOV" type="video/quicktime">
-  </video>
-  <p>My recreation of the synth from Take on Me by Aha using Serum</p>
+  <main>
+    <section class="card">
+      <div class="video-grid">
+        <div class="video-card">
+          <h2>Music Production</h2>
+          <video controls>
+            <source src="photos/videos/Serum.MOV" type="video/quicktime">
+          </video>
+          <p class="caption">My recreation of the synth from Take on Me by Aha using Serum</p>
+        </div>
 
-  <h2>Chemistry</h2>
-  <video controls width="600">
-    <source src="photos/videos/Chem.MOV" type="video/quicktime">
-  </video>
-  <p>I enjoy doing chemistry experiments, and have recently done a Copper (II) Sulfate and Sodium Hydroxide reaction with my friend Jeri</p>
+        <div class="video-card">
+          <h2>Chemistry</h2>
+          <video controls>
+            <source src="photos/videos/Chem.MOV" type="video/quicktime">
+          </video>
+          <p class="caption">I enjoy doing chemistry experiments, and have recently done a Copper (II) Sulfate and Sodium Hydroxide reaction with my friend Jeri</p>
+        </div>
 
-  <h2>Basketball</h2>
-  <video controls width="600">
-    <source src="photos/videos/Basketball.MOV" type="video/quicktime">
-  </video>
-  <p>I love watching basketball, and went to a Euroleague game on my exchange program</p>
-
-  <a href="index.html">Back to Home</a>
+        <div class="video-card">
+          <h2>Basketball</h2>
+          <video controls>
+            <source src="photos/videos/Basketball.MOV" type="video/quicktime">
+          </video>
+          <p class="caption">I love watching basketball, and went to a Euroleague game on my exchange program</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
