@@ -7,18 +7,10 @@
     .learn-more-button { margin-top: 16px; background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
     .more-info { max-height: 0; overflow: hidden; opacity: 0; margin-top: 0; padding: 0 18px; background: #eef6fa; border-left: 5px solid #236d91; border-radius: 12px; font-size: 18px; transition: max-height 0.28s ease, opacity 0.22s ease, margin-top 0.22s ease, padding 0.22s ease; }
     .more-info.open { max-height: 900px; opacity: 1; margin-top: 18px; padding: 18px; }
-    .carousel { text-align: center; }
-    .carousel-frame { background: #eef6fa; border-radius: 18px; padding: 20px; margin-top: 18px; }
-    .carousel-frame embed { width: 100%; height: 650px; border-radius: 14px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12); background: white; }
-    .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 18px; flex-wrap: wrap; }
-    .carousel-button { background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
-    .carousel-button:hover { background: #123c55; }
-    #grade-counter { font-weight: bold; color: #123c55; }
-    .fullscreen-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(8, 18, 28, 0.96); padding: 24px; align-items: center; justify-content: center; flex-direction: column; }
-    .fullscreen-overlay.open { display: flex; }
-    .fullscreen-overlay embed { width: 94vw; height: 78vh; border-radius: 14px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); background: white; }
-    .fullscreen-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 18px; flex-wrap: wrap; color: white; }
-    .close-fullscreen { position: absolute; top: 22px; right: 22px; background: white; color: #123c55; }
+    .grade-list { text-align: center; }
+    .grade-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 16px; margin-top: 24px; }
+    .grade-link { background: #236d91; color: white; text-decoration: none; border-radius: 999px; padding: 14px 18px; font-size: 16px; font-weight: bold; transition: background 0.2s ease; }
+    .grade-link:hover { background: #123c55; }
   </style>
 </head>
 
@@ -73,62 +65,28 @@
       <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more', this)">Click to learn more</button><div id="confirmation-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
-    <section class="card carousel">
+    <section class="card grade-list">
       <h2>Grades</h2>
-      <p>Use the arrows to cycle through my grade files in chronological order.</p>
-      <div class="carousel-frame">
-        <embed id="grade-file" src="Grades/G1.pdf" type="application/pdf">
-      </div>
-      <div class="carousel-controls">
-        <button class="carousel-button" onclick="changeGrade(-1)">Previous</button>
-        <span id="grade-counter">G1</span>
-        <button class="carousel-button" onclick="changeGrade(1)">Next</button>
-        <button class="carousel-button" onclick="openFullscreenCarousel()">Full screen</button>
+      <p>Open each grade file below in chronological order.</p>
+
+      <div class="grade-links">
+        <a class="grade-link" href="Grades/G1.pdf" target="_blank">G1</a>
+        <a class="grade-link" href="Grades/G2.pdf" target="_blank">G2</a>
+        <a class="grade-link" href="Grades/G3.pdf" target="_blank">G3</a>
+        <a class="grade-link" href="Grades/G4.pdf" target="_blank">G4</a>
+        <a class="grade-link" href="Grades/G5.pdf" target="_blank">G5</a>
+        <a class="grade-link" href="Grades/G6.pdf" target="_blank">G6</a>
+        <a class="grade-link" href="Grades/G7.pdf" target="_blank">G7</a>
+        <a class="grade-link" href="Grades/G8.pdf" target="_blank">G8</a>
       </div>
     </section>
   </main>
-
-  <div id="fullscreen-carousel" class="fullscreen-overlay">
-    <button class="carousel-button close-fullscreen" onclick="closeFullscreenCarousel()">Close full screen</button>
-    <embed id="fullscreen-grade-file" src="Grades/G1.pdf" type="application/pdf">
-    <div class="fullscreen-controls">
-      <button class="carousel-button" onclick="changeGrade(-1)">Previous</button>
-      <span id="fullscreen-grade-counter">G1</span>
-      <button class="carousel-button" onclick="changeGrade(1)">Next</button>
-    </div>
-  </div>
 
   <script>
     function toggleMore(id, button) {
       const box = document.getElementById(id);
       box.classList.toggle('open');
       button.textContent = box.classList.contains('open') ? 'Click to close' : 'Click to learn more';
-    }
-
-    const gradeFiles = ['G1.pdf', 'G2.pdf', 'G3.pdf', 'G4.pdf', 'G5.pdf', 'G6.pdf', 'G7.pdf', 'G8.pdf'];
-    let currentGrade = 0;
-
-    function showGrade() {
-      const fileName = gradeFiles[currentGrade];
-      const label = fileName.replace('.pdf', '');
-      document.getElementById('grade-file').src = 'Grades/' + fileName;
-      document.getElementById('grade-counter').textContent = label;
-      document.getElementById('fullscreen-grade-file').src = 'Grades/' + fileName;
-      document.getElementById('fullscreen-grade-counter').textContent = label;
-    }
-
-    function changeGrade(direction) {
-      currentGrade = (currentGrade + direction + gradeFiles.length) % gradeFiles.length;
-      showGrade();
-    }
-
-    function openFullscreenCarousel() {
-      showGrade();
-      document.getElementById('fullscreen-carousel').classList.add('open');
-    }
-
-    function closeFullscreenCarousel() {
-      document.getElementById('fullscreen-carousel').classList.remove('open');
     }
   </script>
 </body>
