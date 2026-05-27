@@ -37,7 +37,7 @@
       <div>
         <h2>Music Production</h2>
         <p>My recreation of the synth from Take on Me by Aha using Serum</p>
-        <button class="learn-more-button" onclick="toggleMore('music-more')">Click to learn more</button>
+        <button class="learn-more-button" onclick="toggleMore('music-more', this)">Click to learn more</button>
         <div id="music-more" class="more-info"><p>More information will be added here later.</p></div>
       </div>
     </section>
@@ -50,7 +50,7 @@
       <div>
         <h2>Chemistry</h2>
         <p>I enjoy doing chemistry experiments, and have recently done a Copper (II) Sulfate and Sodium Hydroxide reaction with my friend Jeri</p>
-        <button class="learn-more-button" onclick="toggleMore('chem-more')">Click to learn more</button>
+        <button class="learn-more-button" onclick="toggleMore('chem-more', this)">Click to learn more</button>
         <div id="chem-more" class="more-info"><p>More information will be added here later.</p></div>
       </div>
     </section>
@@ -63,15 +63,17 @@
       <div>
         <h2>Basketball</h2>
         <p>I love watching basketball, and went to a Euroleague game on my exchange program</p>
-        <button class="learn-more-button" onclick="toggleMore('basketball-more')">Click to learn more</button>
+        <button class="learn-more-button" onclick="toggleMore('basketball-more', this)">Click to learn more</button>
         <div id="basketball-more" class="more-info"><p>More information will be added here later.</p></div>
       </div>
     </section>
   </main>
 
   <script>
-    function toggleMore(id) {
-      document.getElementById(id).classList.toggle('open');
+    function toggleMore(id, button) {
+      const box = document.getElementById(id);
+      box.classList.toggle('open');
+      button.textContent = box.classList.contains('open') ? 'Click to close' : 'Click to learn more';
     }
   </script>
 </body>
