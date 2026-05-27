@@ -7,6 +7,13 @@
     .learn-more-button { margin-top: 16px; background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
     .more-info { max-height: 0; overflow: hidden; opacity: 0; margin-top: 0; padding: 0 18px; background: #eef6fa; border-left: 5px solid #236d91; border-radius: 12px; font-size: 18px; transition: max-height 0.28s ease, opacity 0.22s ease, margin-top 0.22s ease, padding 0.22s ease; }
     .more-info.open { max-height: 900px; opacity: 1; margin-top: 18px; padding: 18px; }
+    .carousel { text-align: center; }
+    .carousel-frame { background: #eef6fa; border-radius: 18px; padding: 20px; margin-top: 18px; }
+    .carousel-frame img { max-width: 100%; max-height: 650px; border-radius: 14px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12); }
+    .carousel-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 18px; flex-wrap: wrap; }
+    .carousel-button { background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
+    .carousel-button:hover { background: #123c55; }
+    #grade-counter { font-weight: bold; color: #123c55; }
   </style>
 </head>
 
@@ -60,6 +67,19 @@
       <img src="photos/Confirmation.png" alt="Confirmation service">
       <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more', this)">Click to learn more</button><div id="confirmation-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
+
+    <section class="card carousel">
+      <h2>Grades</h2>
+      <p>Use the arrows to cycle through my grade images in chronological order.</p>
+      <div class="carousel-frame">
+        <img id="grade-image" src="Grades/G1.png" alt="Grade image">
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-button" onclick="changeGrade(-1)">Previous</button>
+        <span id="grade-counter">G1</span>
+        <button class="carousel-button" onclick="changeGrade(1)">Next</button>
+      </div>
+    </section>
   </main>
 
   <script>
@@ -67,6 +87,22 @@
       const box = document.getElementById(id);
       box.classList.toggle('open');
       button.textContent = box.classList.contains('open') ? 'Click to close' : 'Click to learn more';
+    }
+
+    const gradeImages = ['G1.png', 'G2.png', 'G3.png', 'G4.png', 'G5.png', 'G6.png'];
+    let currentGrade = 0;
+
+    function showGrade() {
+      const image = document.getElementById('grade-image');
+      const counter = document.getElementById('grade-counter');
+      image.src = 'Grades/' + gradeImages[currentGrade];
+      image.alt = gradeImages[currentGrade].replace('.png', '');
+      counter.textContent = gradeImages[currentGrade].replace('.png', '');
+    }
+
+    function changeGrade(direction) {
+      currentGrade = (currentGrade + direction + gradeImages.length) % gradeImages.length;
+      showGrade();
     }
   </script>
 </body>
