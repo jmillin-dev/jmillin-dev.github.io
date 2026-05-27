@@ -14,6 +14,9 @@
     .carousel-button { background: #236d91; color: white; border: none; border-radius: 999px; padding: 12px 18px; font-size: 16px; font-weight: bold; cursor: pointer; }
     .carousel-button:hover { background: #123c55; }
     #grade-counter { font-weight: bold; color: #123c55; min-width: 34px; text-align: center; }
+    .progress-dots { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
+    .progress-dot { width: 11px; height: 11px; border-radius: 50%; border: none; background: #c9d6df; cursor: pointer; padding: 0; transition: transform 0.2s ease, background 0.2s ease; }
+    .progress-dot.active { background: #236d91; transform: scale(1.2); }
     .fullscreen-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(8, 18, 28, 0.96); padding: 24px; align-items: center; justify-content: center; flex-direction: column; }
     .fullscreen-overlay.open { display: flex; }
     .fullscreen-image-area { width: 94vw; height: 78vh; display: flex; align-items: center; justify-content: center; }
@@ -80,6 +83,7 @@
       <div class="carousel-frame">
         <img id="grade-image" src="Grades/G1.png" alt="Grade image">
       </div>
+      <div class="progress-dots" id="grade-dots"></div>
       <div class="carousel-controls">
         <button class="carousel-button" onclick="changeGrade(-1)">Previous</button>
         <span id="grade-counter">G1</span>
@@ -94,6 +98,7 @@
     <div class="fullscreen-image-area">
       <img id="fullscreen-grade-image" src="Grades/G1.png" alt="Grade image full screen">
     </div>
+    <div class="progress-dots" id="fullscreen-grade-dots"></div>
     <div class="fullscreen-controls">
       <button class="carousel-button" onclick="changeGrade(-1)">Previous</button>
       <span id="fullscreen-grade-counter">G1</span>
@@ -111,6 +116,31 @@
     const gradeImages = ['G1.png', 'G2.png', 'G3.png', 'G4.png', 'G5.png', 'G6.png', 'G7.png', 'G8.png'];
     let currentGrade = 0;
 
+    function createDots() {
+      const dotsContainers = [document.getElementById('grade-dots'), document.getElementById('fullscreen-grade-dots')];
+      dotsContainers.forEach(function(container) {
+        container.innerHTML = '';
+        gradeImages.forEach(function(_, index) {
+          const dot = document.createElement('button');
+          dot.className = 'progress-dot';
+          dot.setAttribute('aria-label', 'Go to grade ' + (index + 1));
+          dot.onclick = function() {
+            currentGrade = index;
+            showGrade();
+          };
+          container.appendChild(dot);
+        });
+      });
+    }
+
+    function updateDots() {
+      document.querySelectorAll('.progress-dots').forEach(function(container) {
+        Array.from(container.children).forEach(function(dot, index) {
+          dot.classList.toggle('active', index === currentGrade);
+        });
+      });
+    }
+
     function showGrade() {
       const fileName = gradeImages[currentGrade];
       const label = fileName.replace('.png', '');
@@ -120,6 +150,7 @@
       document.getElementById('fullscreen-grade-image').src = 'Grades/' + fileName;
       document.getElementById('fullscreen-grade-image').alt = label + ' full screen';
       document.getElementById('fullscreen-grade-counter').textContent = label;
+      updateDots();
     }
 
     function changeGrade(direction) {
@@ -135,6 +166,9 @@
     function closeFullscreenCarousel() {
       document.getElementById('fullscreen-carousel').classList.remove('open');
     }
+
+    createDots();
+    showGrade();
   </script>
 </body>
 </html>
