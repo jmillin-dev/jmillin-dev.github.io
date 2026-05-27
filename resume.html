@@ -43,28 +43,30 @@
 
     <section class="feature-section">
       <img src="exchange.png" alt="Exchange program certificate">
-      <div><h2>Spanish Exchange Program</h2><p>Me receiving my certificate of completion for my exchange program</p><button class="learn-more-button" onclick="toggleMore('exchange-more')">Click to learn more</button><div id="exchange-more" class="more-info"><p>More information will be added here later.</p></div></div>
+      <div><h2>Spanish Exchange Program</h2><p>Me receiving my certificate of completion for my exchange program</p><button class="learn-more-button" onclick="toggleMore('exchange-more', this)">Click to learn more</button><div id="exchange-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
     <section class="feature-section">
       <img src="civil.png" alt="Civil Rights Trip at the Edmund Pettus Bridge">
-      <div><h2>Civil Rights Trip</h2><p>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</p><button class="learn-more-button" onclick="toggleMore('civil-more')">Click to learn more</button><div id="civil-more" class="more-info"><p>More information will be added here later.</p></div></div>
+      <div><h2>Civil Rights Trip</h2><p>Me on my 8th grade Civil Rights Trip to Alabama at the Edmund Pettus Bridge</p><button class="learn-more-button" onclick="toggleMore('civil-more', this)">Click to learn more</button><div id="civil-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
     <section class="feature-section">
       <img src="friend.png" alt="Volunteering at Friendship Circle">
-      <div><h2>Friendship Circle</h2><p>Me volunteering at Friendship Circle</p><button class="learn-more-button" onclick="toggleMore('friend-more')">Click to learn more</button><div id="friend-more" class="more-info"><p>More information will be added here later.</p></div></div>
+      <div><h2>Friendship Circle</h2><p>Me volunteering at Friendship Circle</p><button class="learn-more-button" onclick="toggleMore('friend-more', this)">Click to learn more</button><div id="friend-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
 
     <section class="feature-section">
       <img src="confirmation.png" alt="Confirmation service">
-      <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more')">Click to learn more</button><div id="confirmation-more" class="more-info"><p>More information will be added here later.</p></div></div>
+      <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more', this)">Click to learn more</button><div id="confirmation-more" class="more-info"><p>More information will be added here later.</p></div></div>
     </section>
   </main>
 
   <script>
-    function toggleMore(id) {
-      document.getElementById(id).classList.toggle('open');
+    function toggleMore(id, button) {
+      const box = document.getElementById(id);
+      box.classList.toggle('open');
+      button.textContent = box.classList.contains('open') ? 'Click to close' : 'Click to learn more';
     }
   </script>
 </body>
