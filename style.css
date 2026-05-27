@@ -27,7 +27,7 @@ body::before {
 header {
   color: white;
   min-height: 58vh;
-  padding: 34px 9% 90px;
+  padding: 0 9% 90px;
   background:
     linear-gradient(rgba(7, 12, 18, 0.78), rgba(7, 12, 18, 0.9)),
     radial-gradient(circle at center, rgba(35, 109, 145, 0.24), transparent 44%);
@@ -35,13 +35,21 @@ header {
 }
 
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
-  max-width: 1280px;
-  margin: 0 auto;
+  width: calc(100% + 18%);
+  margin-left: -9%;
+  padding: 28px 9%;
+  background: rgba(7, 12, 18, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .logo {
@@ -257,7 +265,13 @@ figcaption,
 @media (max-width: 760px) {
   header {
     min-height: auto;
-    padding: 28px 6% 70px;
+    padding: 0 6% 70px;
+  }
+
+  nav {
+    width: calc(100% + 12%);
+    margin-left: -6%;
+    padding: 22px 6%;
   }
 
   .logo {
