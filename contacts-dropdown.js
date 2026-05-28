@@ -78,6 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    var currentPath = window.location.pathname.replace(/\/index\.html$/, '/');
+    var destinationPath = destination.pathname.replace(/\/index\.html$/, '/');
+
+    if (destinationPath === currentPath && destination.hash === window.location.hash) {
+      return;
+    }
+
     link.addEventListener('click', function (event) {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
         return;
