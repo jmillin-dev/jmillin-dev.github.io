@@ -12,8 +12,8 @@ body {
   color: #ffe7c2;
   background: #e9283f;
   line-height: 1.7;
-  opacity: 0;
-  transform: translateY(8px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.28s ease, transform 0.28s ease;
 }
 
