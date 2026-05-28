@@ -12,6 +12,19 @@ body {
   color: #ffe7c2;
   background: #e9283f;
   line-height: 1.7;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+body.page-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.page-exiting {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 
 body::before {
@@ -314,6 +327,16 @@ figcaption,
 
 #grade-counter {
   color: #fff1c9 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  body.page-loaded,
+  body.page-exiting {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @media (max-width: 760px) {
