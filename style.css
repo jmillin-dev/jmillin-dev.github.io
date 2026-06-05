@@ -13,18 +13,19 @@ body {
   background: #e9283f;
   line-height: 1.7;
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.28s ease, transform 0.28s ease;
+  transition: opacity 0.24s ease;
 }
 
 body.page-loaded {
   opacity: 1;
-  transform: translateY(0);
 }
 
 body.page-exiting {
   opacity: 0;
-  transform: translateY(-6px);
+}
+
+body.fullscreen-active {
+  opacity: 1 !important;
 }
 
 body::before {
@@ -334,7 +335,6 @@ figcaption,
   body.page-loaded,
   body.page-exiting {
     opacity: 1;
-    transform: none;
     transition: none;
   }
 }
