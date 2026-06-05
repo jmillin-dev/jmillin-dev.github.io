@@ -22,10 +22,10 @@
     .progress-dots { display: flex; justify-content: center; gap: 10px; margin-top: 16px; }
     .progress-dot { width: 11px; height: 11px; border-radius: 50%; border: none; background: #c9d6df; cursor: pointer; padding: 0; transition: transform 0.2s ease, background 0.2s ease; }
     .progress-dot.active { background: #236d91; transform: scale(1.2); }
-    .fullscreen-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(8, 18, 28, 0.96); padding: 24px; align-items: center; justify-content: center; flex-direction: column; }
+    .fullscreen-overlay { display: none; position: fixed; inset: 0; z-index: 99999; background: rgba(8, 18, 28, 0.96); padding: 24px; align-items: center; justify-content: center; flex-direction: column; opacity: 1 !important; transform: none !important; }
     .fullscreen-overlay.open { display: flex; }
     .fullscreen-image-area { width: 94vw; height: 78vh; display: flex; align-items: center; justify-content: center; }
-    .fullscreen-overlay img { max-width: 94vw; max-height: 78vh; width: auto; height: auto; border-radius: 14px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); }
+    .fullscreen-overlay img { display: block !important; max-width: 94vw; max-height: 78vh; width: auto; height: auto; object-fit: contain; border-radius: 14px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); background: white; }
     .fullscreen-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 18px; flex-wrap: wrap; color: white; min-height: 48px; }
     .close-fullscreen { position: absolute; top: 22px; right: 22px; background: white; color: #123c55; }
     @media (max-width: 760px) { .carousel-fullscreen-button { position: static; margin-top: 16px; } }
@@ -80,7 +80,7 @@
 
     <section class="feature-section">
       <img src="photos/Confirmation.png" alt="Confirmation service">
-      <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more', this)">Click to learn more</button><div id="confirmation-more" class="more-info"><p>More information will be added here later.</p></div></div>
+      <div><h2>Confirmation Service</h2><p>Photo of me at my confirmation service</p><button class="learn-more-button" onclick="toggleMore('confirmation-more', this)">Click to learn more</button><div id="confirmation-more" class="more-info"><p>For my Jewish confirmation, I learned about the values of being Jewish, and even went on a trip to Morocco to learn about the Jewish history in a foreign country. An impactful experience was when we went to the town of Tetuan, a town where only 8 Jews remained. We explored an abandoned synagogue, which helped strengthen my appreciation for cultural preservation, community, and the importance of carrying traditions forward. The picture depicted was after the trip, where we led a service during the holiday of Shavuot, where I delivered a D&rsquo;var Torah on the Book of Ruth.</p></div></div>
     </section>
 
     <section class="card carousel">
@@ -150,11 +150,14 @@
     function showGrade() {
       const fileName = gradeImages[currentGrade];
       const label = fileName.replace('.png', '');
-      document.getElementById('grade-image').src = 'Grades/' + fileName;
-      document.getElementById('grade-image').alt = label;
+      const regularImage = document.getElementById('grade-image');
+      const fullscreenImage = document.getElementById('fullscreen-grade-image');
+      regularImage.src = 'Grades/' + fileName;
+      regularImage.alt = label;
       document.getElementById('grade-counter').textContent = label;
-      document.getElementById('fullscreen-grade-image').src = 'Grades/' + fileName;
-      document.getElementById('fullscreen-grade-image').alt = label + ' full screen';
+      fullscreenImage.src = 'Grades/' + fileName;
+      fullscreenImage.alt = label + ' full screen';
+      fullscreenImage.style.display = 'block';
       document.getElementById('fullscreen-grade-counter').textContent = label;
       updateDots();
     }
@@ -165,12 +168,15 @@
     }
 
     function openFullscreenCarousel() {
+      document.body.classList.remove('page-exiting');
+      document.body.classList.add('fullscreen-active');
       showGrade();
       document.getElementById('fullscreen-carousel').classList.add('open');
     }
 
     function closeFullscreenCarousel() {
       document.getElementById('fullscreen-carousel').classList.remove('open');
+      document.body.classList.remove('fullscreen-active');
     }
 
     createDots();
