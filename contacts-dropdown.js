@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.body.classList.add('page-loaded');
 
+  if (!document.querySelector('link[href="signature.css"]')) {
+    var signatureStyles = document.createElement('link');
+    signatureStyles.rel = 'stylesheet';
+    signatureStyles.href = 'signature.css';
+    document.head.appendChild(signatureStyles);
+  }
+
   document.querySelectorAll('.nav-links').forEach(function (navLinks) {
     if (navLinks.querySelector('.dropdown')) {
       return;
